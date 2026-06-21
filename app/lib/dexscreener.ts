@@ -1,7 +1,7 @@
 export async function getBaseTokens() {
   try {
 const response = await fetch(
-  "https://api.dexscreener.com/latest/dex/search?q=base"
+  "https://api.dexscreener.com/latest/dex/search?q=toshi"
 );
 
     const data = await response.json();
