@@ -96,6 +96,7 @@ export default async function Home() {
 
             <thead className="bg-gray-900">
               <tr>
+                <th className="text-left p-4">Chain</th>
                 <th className="text-left p-4">Token</th>
                 <th className="text-left p-4">Trust</th>
                 <th className="text-left p-4">Buys / Sells</th>
@@ -109,23 +110,22 @@ export default async function Home() {
             <tbody>
 
 {tokens
-  .filter((token:any) => {
+ .filter((token:any) => {
 
-    const ageHours =
-      (Date.now() - token.pairCreatedAt) /
-      (1000 * 60 * 60);
+  const ageHours =
+  (Date.now() - token.pairCreatedAt) /
+  (1000 * 60 * 60);
 
-    const liquidity = token.liquidity?.usd || 0;
-    const symbol = token.baseToken?.symbol || "";
+const liquidity = token.liquidity?.usd || 0;
 
-console.log(
-  token.baseToken?.symbol,
-  JSON.stringify(token.info?.websites),
-  JSON.stringify(token.info?.socials)
-);
-return true; // 7 days
+const symbol =
+  token.baseToken?.symbol || "";
 
-  })
+return token.chainId === "base";
+
+}) // 7 days
+
+
   .slice(0,50)
   .map((token:any) => {
 
@@ -141,9 +141,13 @@ return true; // 7 days
       key={token.pairAddress}
       className="border-t border-gray-800"
     >
-      <td className="p-4">
-        {token.baseToken?.symbol}
-      </td>
+<td className="p-4">
+  {token.chainId}
+</td>
+
+<td className="p-4">
+  {token.baseToken?.symbol}
+</td>
 
       <td
         className={`p-4 font-bold ${
