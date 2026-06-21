@@ -98,16 +98,36 @@ export default async function Home() {
               <tr>
                 <th className="text-left p-4">Token</th>
                 <th className="text-left p-4">Trust</th>
-                <th className="text-left p-4">Buy Pressure</th>
+                <th className="text-left p-4">Buys / Sells</th>
                 <th className="text-left p-4">Liquidity</th>
                 <th className="text-left p-4">Age</th>
+                <th className="text-left p-4">Socials</th>
                 <th className="text-left p-4">Status</th>
               </tr>
             </thead>
 
             <tbody>
 
-{tokens.slice(0,10).map((token:any) => {
+{tokens
+  .filter((token:any) => {
+
+    const ageHours =
+      (Date.now() - token.pairCreatedAt) /
+      (1000 * 60 * 60);
+
+    const liquidity = token.liquidity?.usd || 0;
+    const symbol = token.baseToken?.symbol || "";
+
+console.log(
+  token.baseToken?.symbol,
+  JSON.stringify(token.info?.websites),
+  JSON.stringify(token.info?.socials)
+);
+return true; // 7 days
+
+  })
+  .slice(0,50)
+  .map((token:any) => {
 
   const buys = token.txns?.h24?.buys || 0;
   const sells = token.txns?.h24?.sells || 0;
@@ -136,7 +156,7 @@ export default async function Home() {
       </td>
 
       <td className="p-4">
-        {buys}
+        {buys} / {sells}
       </td>
 
       <td className="p-4">
@@ -146,15 +166,28 @@ export default async function Home() {
         ).toLocaleString()}
       </td>
 
-      <td className="p-4">
-        Live
-      </td>
+ <td className="p-4">
+  {Math.floor(
+    (Date.now() - token.pairCreatedAt) /
+    (1000 * 60 * 60)
+  )}h
+</td>
 
-      <td className="p-4">
-        {buys > sells
-          ? "💎 Early Gem"
-          : "🔥 Trending"}
-      </td>
+<td className="p-4">
+  {token.info?.websites?.length ? "🌐 " : ""}
+  {token.info?.socials?.some(
+    (s:any) => s.type === "twitter"
+  ) ? "𝕏 " : ""}
+  {token.info?.socials?.some(
+    (s:any) => s.type === "telegram"
+  ) ? "📱" : ""}
+</td>
+
+<td className="p-4">
+  {buys > sells
+    ? "💎 Early Gem"
+    : "🔥 Trending"}
+</td>
 
     </tr>
 
