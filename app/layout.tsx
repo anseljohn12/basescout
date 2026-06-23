@@ -12,10 +12,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "BaseScout",
   description: "Discover trending pools and hidden gems on Base.",
   applicationName: "BaseScout",
+  other: {
+    "base:app_id": "6a3a70aa303847e6f6974670",
+  },
 };
 
 export default function RootLayout({
