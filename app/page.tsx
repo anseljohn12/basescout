@@ -219,71 +219,29 @@ const trendingPools = [...pools]
 
       <div className="grid grid-cols-4 gap-4 mb-8">
 
- <div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-4">
-  className="
-bg-blue-950/20
-backdrop-blur-md
-border border-blue-500/20
-rounded-2xl
-p-4
-h-20
-flex
-items-center
-"
+<div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-4 h-16 flex items-center">
   <div className="text-2xl font-bold">
     🚀 {hotPools} Hot Pools
   </div>
-
 </div>
 
-<div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-4">
-  className="
-bg-blue-950/20
-backdrop-blur-md
-border border-blue-500/20
-rounded-2xl
-p-4
-h-20
-flex
-items-center
-"
+<div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-4 h-16 flex items-center">
   <div className="text-2xl font-bold">
     💎 {gemPools} Gem Pools
   </div>
-
 </div>
 
-<div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-4">
- className="
-bg-blue-950/20
-backdrop-blur-md
-border border-blue-500/20
-rounded-2xl
-p-4
-h-20
-flex
-items-center
-"
- <div className="text-2xl font-bold">
+<div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-4 h-16 flex items-center">
+  <div className="text-2xl font-bold">
     💰 ${Math.round(totalLP / 1000000)}M Total LP
   </div>
 </div>
 
-  <div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-5">
- className="
-bg-blue-950/20
-backdrop-blur-md
-border border-blue-500/20
-rounded-2xl
-p-4
-h-20
-flex
-items-center
-"
-<div className="text-2xl font-bold">
-  📈 ${Math.round(totalVolume / 1000000)}M 24H Vol
-</div>
+<div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-4 h-16 flex items-center">
+  <div className="text-2xl font-bold">
+    📈 ${Math.round(totalVolume / 1000000)}M 24H Vol
   </div>
+</div>
 
 </div>
 
