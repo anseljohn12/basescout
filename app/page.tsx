@@ -42,9 +42,6 @@ const totalVolume = pools.reduce(
     ),
   0
 )
-const trendingPools = [...pools]
-  .filter((pool: any) => {
-    const attrs = pool.attributes;
 
 const basePulse = [
   "BRETT",
@@ -56,6 +53,10 @@ const basePulse = [
   "MOG",
   "BASENJI",
 ];
+
+const trendingPools = [...pools]
+  .filter((pool: any) => {
+    const attrs = pool.attributes;
 
     const ageDays =
       Math.floor(
