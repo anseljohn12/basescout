@@ -1,4 +1,5 @@
 import { getBasePools } from "./lib/geckoterminal";
+import Image from "next/image";
 
 export default async function Home() {
   const pools = await getBasePools();
@@ -47,22 +48,23 @@ const totalVolume = pools.reduce(
       "radial-gradient(circle at center, #0a3cff 0%, #030712 35%, #000000 100%)",
   }}
 >
-<div className="relative inline-block mb-4">
-
-  <div
-    className="
-    absolute
-    inset-0
-    bg-blue-500
-    blur-[120px]
-    opacity-40
-    "
+<div className="flex items-center gap-4">
+  <Image
+    src="/logo.png"
+    alt="BaseScout Logo"
+    width={64}
+    height={64}
   />
 
-  <h1 className="relative text-6xl font-bold">
-    BaseScout 🚀
-  </h1>
+  <div>
+    <h1 className="text-5xl font-bold">
+      BaseScout
+    </h1>
 
+    <p className="text-gray-400">
+      Discover Before The Crowd
+    </p>
+  </div>
 </div>
 
       <div className="text-green-400 mb-8">
