@@ -115,8 +115,9 @@ const trendingPools = [...pools]
       score,
     };
   })
-  .sort((a, b) => b.score - a.score)
-  .slice(0, 10);
+.sort((a,b) => b.score - a.score)
+.filter(item => item.score > 50)
+.slice(0,10)
 
   return (
     <main
@@ -180,9 +181,13 @@ const trendingPools = [...pools]
   >
     About
   </a>
-</nav>
+<div className="flex justify-between items-center mb-6">
+  <nav>
+    ...
+  </nav>
 
-<ThemeToggle />
+  <ThemeToggle />
+</div>
 
 <div className="mb-8">
 
