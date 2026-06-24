@@ -224,13 +224,21 @@ const trendingPools = [...pools]
     🔥 Trending on Base
   </h2>
 
-  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div className="flex gap-4 overflow-x-auto pb-4">
     {trendingPools.map(
       ({ pool, score }: any, index) => (
-        <div
-          key={pool.id}
-          className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-xl p-4"
-        >
+<div
+  key={pool.id}
+  className="
+    min-w-[280px]
+    flex-shrink-0
+    bg-blue-950/20
+    backdrop-blur-md
+    border border-blue-500/20
+    rounded-xl
+    p-4
+  "
+>
           <div className="flex justify-between items-center mb-2">
             <span className="text-orange-400 font-bold">
               #{index + 1}
