@@ -1,4 +1,5 @@
 import { getBasePools } from "./lib/geckoterminal";
+import ThemeToggle from "./theme-toggle";
 import Image from "next/image";
 
 export default async function Home() {
@@ -167,6 +168,8 @@ const trendingPools = [...pools]
     About
   </a>
 </nav>
+
+<ThemeToggle />
 
 <div className="text-blue-300 mb-8">
   🔥 Tracking {pools.length} Base Opportunities
