@@ -39,7 +39,71 @@ const totalVolume = pools.reduce(
       pool.attributes.volume_usd?.h24 || 0
     ),
   0
-);
+)
+const trendingPools = [...pools]
+  .filter((pool: any) => {
+    const attrs = pool.attributes;
+
+    const ageDays =
+      Math.floor(
+        (Date.now() -
+          new Date(
+            attrs.pool_created_at
+          ).getTime()) /
+        (1000 * 60 * 60 * 24)
+      );
+
+    return ageDays < 90;
+  })
+  .map((pool: any) => {
+    const attrs = pool.attributes;
+
+    const buys =
+      attrs.transactions?.h24?.buys || 0;
+
+    const sells =
+      attrs.transactions?.h24?.sells || 0;
+
+    const volume =
+      Number(
+        attrs.volume_usd?.h24 || 0
+      );
+
+    const marketCap =
+      Number(
+        attrs.market_cap_usd || 0
+      );
+
+    const ageDays =
+      Math.floor(
+        (Date.now() -
+          new Date(
+            attrs.pool_created_at
+          ).getTime()) /
+        (1000 * 60 * 60 * 24)
+      );
+
+    let score = 0;
+
+    score += buys - sells;
+    score += volume / 500000;
+
+    if (ageDays < 7) score += 100;
+    else if (ageDays < 30) score += 50;
+    else if (ageDays < 90) score += 20;
+
+    if (marketCap < 1000000) score += 100;
+    else if (marketCap < 5000000) score += 50;
+    else if (marketCap < 20000000) score += 20;
+
+    return {
+      pool,
+      score,
+    };
+  })
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 10);
+
   return (
     <main
   className="min-h-screen text-white p-8 bg-cover bg-center"
@@ -69,35 +133,35 @@ const totalVolume = pools.reduce(
 
 <nav className="flex gap-8 mb-6 text-gray-300 font-medium">
   <a
-    href="#"
+    href="#explore"
     className="hover:text-blue-400 transition"
   >
     Explore
   </a>
 
-  <a
-    href="#"
-    className="hover:text-blue-400 transition"
-  >
-    Trending
-  </a>
+<a
+  href="#trending"
+  className="hover:text-blue-400 transition"
+>
+  Trending
+</a>
 
   <a
-    href="#"
+    href="#new-pools"
     className="hover:text-blue-400 transition"
   >
     New Pools
   </a>
 
   <a
-    href="#"
+    href="#watchlist"
     className="hover:text-blue-400 transition"
   >
     Watchlist
   </a>
 
   <a
-    href="#"
+    href="#about"
     className="hover:text-blue-400 transition"
   >
     About
@@ -362,6 +426,20 @@ const totalVolume = pools.reduce(
     })}
 </tbody>
       </table>
+
+<section
+  id="trending"
+  className="mt-20"
+>
+  <h2 className="text-3xl font-bold mb-4">
+    🔥 Trending on Base
+  </h2>
+
+  <div className="text-gray-400">
+    Coming Soon
+  </div>
+</section>
+
     </main>
   );
 }
