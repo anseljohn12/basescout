@@ -4,6 +4,7 @@ import Image from "next/image";
 
 export default async function Home() {
   const pools = await getBasePools();
+  
 
   const hotPools = pools.filter((pool: any) => {
   const buys =
@@ -44,6 +45,17 @@ const totalVolume = pools.reduce(
 const trendingPools = [...pools]
   .filter((pool: any) => {
     const attrs = pool.attributes;
+
+const basePulse = [
+  "BRETT",
+  "VIRTUAL",
+  "AERO",
+  "DEGEN",
+  "TOSHI",
+  "KEYCAT",
+  "MOG",
+  "BASENJI",
+];
 
     const ageDays =
       Math.floor(
@@ -170,6 +182,27 @@ const trendingPools = [...pools]
 </nav>
 
 <ThemeToggle />
+
+<div className="mb-8">
+
+  <div className="text-orange-400 font-bold mb-2">
+    🔥 BASE PULSE LIVE
+  </div>
+
+  <div className="overflow-hidden border border-blue-500/20 rounded-lg bg-blue-950/20 backdrop-blur-md">
+    <div className="flex gap-8 p-3 whitespace-nowrap animate-pulse">
+      {basePulse.map((coin) => (
+        <span
+          key={coin}
+          className="text-blue-300 font-medium"
+        >
+          {coin}
+        </span>
+      ))}
+    </div>
+  </div>
+
+</div>
 
 <div className="text-blue-300 mb-8">
   🔥 Tracking {pools.length} Base Opportunities
