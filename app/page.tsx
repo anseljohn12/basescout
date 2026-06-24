@@ -216,6 +216,51 @@ const trendingPools = [...pools]
 
 </div>
 
+<section
+  id="trending"
+  className="mb-10"
+>
+  <h2 className="text-3xl font-bold mb-4">
+    🔥 Trending on Base
+  </h2>
+
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {trendingPools.map(
+      ({ pool, score }: any, index) => (
+        <div
+          key={pool.id}
+          className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-xl p-4"
+        >
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-orange-400 font-bold">
+              #{index + 1}
+            </span>
+
+            <span className="text-xs text-blue-300">
+              BaseScout Score
+            </span>
+          </div>
+
+          <div className="font-semibold text-lg">
+            {pool.attributes.name}
+          </div>
+
+          <div className="text-gray-400 mt-2">
+            Score: {Math.round(score)}
+          </div>
+        </div>
+      )
+    )}
+  </div>
+</section>
+
+<h2
+  id="explore"
+  className="text-3xl font-bold mb-6"
+>
+  🔎 Explore Base Pools
+</h2>
+
       <table className="w-full">
         <thead>
           <tr className="border-b border-gray-700">
@@ -427,18 +472,6 @@ const trendingPools = [...pools]
 </tbody>
       </table>
 
-<section
-  id="trending"
-  className="mt-20"
->
-  <h2 className="text-3xl font-bold mb-4">
-    🔥 Trending on Base
-  </h2>
-
-  <div className="text-gray-400">
-    Coming Soon
-  </div>
-</section>
 
     </main>
   );
