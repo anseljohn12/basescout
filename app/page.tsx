@@ -115,9 +115,10 @@ const trendingPools = [...pools]
       score,
     };
   })
-.sort((a,b) => b.score - a.score)
-.filter(item => item.score > 50)
-.slice(0,10)
+
+.sort((a, b) => b.score - a.score)
+.filter((item) => item.score > 50)
+.slice(0, 10);
 
   return (
     <main
@@ -146,47 +147,49 @@ const trendingPools = [...pools]
   </div>
 </div>
 
-<nav className="flex gap-8 mb-6 text-gray-300 font-medium">
-  <a
-    href="#explore"
-    className="hover:text-blue-400 transition"
-  >
-    Explore
-  </a>
-
-<a
-  href="#trending"
-  className="hover:text-blue-400 transition"
->
-  Trending
-</a>
-
-  <a
-    href="#new-pools"
-    className="hover:text-blue-400 transition"
-  >
-    New Pools
-  </a>
-
-  <a
-    href="#watchlist"
-    className="hover:text-blue-400 transition"
-  >
-    Watchlist
-  </a>
-
-  <a
-    href="#about"
-    className="hover:text-blue-400 transition"
-  >
-    About
-  </a>
 <div className="flex justify-between items-center mb-6">
-  <nav>
-    ...
+
+  <nav className="flex gap-8 text-gray-300 font-medium">
+
+    <a
+      href="#explore"
+      className="hover:text-blue-400 transition"
+    >
+      Explore
+    </a>
+
+    <a
+      href="#trending"
+      className="hover:text-blue-400 transition"
+    >
+      Trending
+    </a>
+
+    <a
+      href="#new-pools"
+      className="hover:text-blue-400 transition"
+    >
+      New Pools
+    </a>
+
+    <a
+      href="#watchlist"
+      className="hover:text-blue-400 transition"
+    >
+      Watchlist
+    </a>
+
+    <a
+      href="#about"
+      className="hover:text-blue-400 transition"
+    >
+      About
+    </a>
+
   </nav>
 
   <ThemeToggle />
+
 </div>
 
 <div className="mb-8">
@@ -522,6 +525,57 @@ const trendingPools = [...pools]
 </tbody>
       </table>
 
+<section
+  id="about"
+  className="mt-20"
+>
+  <h2 className="text-3xl font-bold mb-6">
+    ℹ️ About BaseScout
+  </h2>
+
+  <div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-6 mb-6">
+
+    <p className="mb-4">
+      BaseScout is a discovery platform built for the Base ecosystem.
+      Our mission is simple:
+      help users discover trending pools, emerging opportunities,
+      and hidden gems before they become widely recognized.
+    </p>
+
+    <p className="mb-4">
+      BaseScout analyzes publicly available liquidity, volume,
+      transaction activity, and pool age data sourced from
+      GeckoTerminal. These signals are combined into the
+      BaseScout Score to surface notable opportunities across Base.
+    </p>
+
+    <p>
+      Our philosophy is simple:
+      <strong> Discover Before The Crowd.</strong>
+    </p>
+
+  </div>
+
+  <div className="bg-yellow-950/20 border border-yellow-500/30 rounded-2xl p-6">
+
+    <h3 className="text-xl font-bold text-yellow-400 mb-3">
+      ⚠️ Not Financial Advice (NFA)
+    </h3>
+
+    <p className="text-gray-300">
+      The information provided by BaseScout is for educational and
+      informational purposes only. BaseScout does not provide
+      financial, investment, legal, or tax advice.
+    </p>
+
+    <p className="text-gray-300 mt-3">
+      Cryptocurrency investments involve significant risk and may
+      result in the loss of capital. Always conduct your own
+      research (DYOR) before making any investment decisions.
+    </p>
+
+  </div>
+</section>
 
     </main>
   );
