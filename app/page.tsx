@@ -67,9 +67,46 @@ const totalVolume = pools.reduce(
   </div>
 </div>
 
-      <div className="text-green-400 mb-8">
-        Pools Found: {pools.length}
-      </div>
+<nav className="flex gap-8 mb-6 text-gray-300 font-medium">
+  <a
+    href="#"
+    className="hover:text-blue-400 transition"
+  >
+    Explore
+  </a>
+
+  <a
+    href="#"
+    className="hover:text-blue-400 transition"
+  >
+    Trending
+  </a>
+
+  <a
+    href="#"
+    className="hover:text-blue-400 transition"
+  >
+    New Pools
+  </a>
+
+  <a
+    href="#"
+    className="hover:text-blue-400 transition"
+  >
+    Watchlist
+  </a>
+
+  <a
+    href="#"
+    className="hover:text-blue-400 transition"
+  >
+    About
+  </a>
+</nav>
+
+<div className="text-blue-300 mb-8">
+  🔥 Tracking {pools.length} Base Opportunities
+</div>
 
       <div className="grid grid-cols-4 gap-4 mb-8">
 
