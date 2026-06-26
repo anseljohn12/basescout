@@ -625,12 +625,24 @@ const trendingPools = [...pools]
     Discover Before The Crowd.
   </p>
 
-  <p className="text-gray-500 text-sm mt-4">
-    Powered by GeckoTerminal • Version 1.0.0
+  <p className="text-gray-600 text-sm mt-4">
+    Built with 💙 for the Base ecosystem.
   </p>
 
-  <p className="text-gray-600 text-xs mt-2">
-    Built with 💙 for the Base ecosystem.
+  <p className="text-gray-500 text-sm mt-2">
+    Crafted by{" "}
+    <a
+      href="https://x.com/anseljohn121985"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-400 hover:text-blue-300 transition"
+    >
+      @anseljohn121985
+    </a>
+  </p>
+
+  <p className="text-gray-500 text-sm mt-4">
+    Powered by GeckoTerminal • Version 1.0.0
   </p>
 
 </footer>
