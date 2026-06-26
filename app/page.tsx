@@ -540,6 +540,60 @@ const trendingPools = [...pools]
 
   </div>
 
+  <section id="roadmap" className="mt-12 mb-10">
+  <h2 className="text-3xl font-bold mb-6">
+    🚀 What's Coming Next
+  </h2>
+
+  <p className="text-gray-400 mb-6">
+    BaseScout is being built in public. Here's what we're working on next.
+  </p>
+
+  <div className="grid md:grid-cols-2 gap-6">
+
+    <div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-5">
+      <h3 className="text-xl font-semibold">⭐ BaseScout Score</h3>
+      <p className="text-gray-400 mt-2">
+        Smarter opportunity rankings using multiple market signals.
+      </p>
+      <span className="inline-block mt-4 text-yellow-400 font-medium">
+        🟡 In Progress
+      </span>
+    </div>
+
+    <div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-5">
+      <h3 className="text-xl font-semibold">🆕 New Pools</h3>
+      <p className="text-gray-400 mt-2">
+        Discover newly launched pools before they become popular.
+      </p>
+      <span className="inline-block mt-4 text-blue-300 font-medium">
+        🔜 Planned
+      </span>
+    </div>
+
+    <div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-5">
+      <h3 className="text-xl font-semibold">📈 Live Base Pulse</h3>
+      <p className="text-gray-400 mt-2">
+        Real-time updates from across the Base ecosystem.
+      </p>
+      <span className="inline-block mt-4 text-blue-300 font-medium">
+        🔜 Planned
+      </span>
+    </div>
+
+    <div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-5">
+      <h3 className="text-xl font-semibold">📱 Mobile Experience</h3>
+      <p className="text-gray-400 mt-2">
+        A faster and smoother experience across all devices.
+      </p>
+      <span className="inline-block mt-4 text-yellow-400 font-medium">
+        🟡 In Progress
+      </span>
+    </div>
+
+  </div>
+</section>
+
   <div className="bg-yellow-950/20 border border-yellow-500/30 rounded-2xl p-6">
 
     <h3 className="text-xl font-bold text-yellow-400 mb-3">
@@ -560,6 +614,26 @@ const trendingPools = [...pools]
 
   </div>
 </section>
+
+<footer className="mt-16 py-8 border-t border-blue-500/20 text-center">
+
+  <h3 className="text-lg font-semibold text-white">
+    BaseScout
+  </h3>
+
+  <p className="text-gray-400 mt-2">
+    Discover Before The Crowd.
+  </p>
+
+  <p className="text-gray-500 text-sm mt-4">
+    Powered by GeckoTerminal • Version 1.0.0
+  </p>
+
+  <p className="text-gray-600 text-xs mt-2">
+    Built with 💙 for the Base ecosystem.
+  </p>
+
+</footer>
 
     </main>
   );
