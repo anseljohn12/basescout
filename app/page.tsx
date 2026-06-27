@@ -147,9 +147,9 @@ const trendingPools = [...pools]
   </div>
 </div>
 
-<div className="flex justify-between items-center mb-6">
+<div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center mb-6">
 
-  <nav className="flex gap-8 text-gray-300 font-medium">
+  <nav className="flex flex-wrap gap-4 text-sm sm:text-base text-gray-300 font-medium">
 
     <a
       href="#explore"
