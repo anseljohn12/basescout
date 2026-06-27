@@ -121,8 +121,8 @@ const trendingPools = [...pools]
 .slice(0, 10);
 
   return (
-    <main
-  className="min-h-screen text-white p-8 bg-cover bg-center"
+<main
+  className="min-h-screen text-white px-4 py-6 sm:px-6 lg:px-8 bg-cover bg-center"
   style={{
     background:
       "radial-gradient(circle at center, #0a3cff 0%, #030712 35%, #000000 100%)",
