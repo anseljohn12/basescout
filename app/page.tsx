@@ -298,7 +298,12 @@ const trendingPools = [...pools]
   🔎 Explore Base Pools
 </h2>
 
-      <table className="w-full">
+{/* Desktop Table */}
+
+<div className="hidden lg:block overflow-x-auto">
+
+<table className="w-full">
+
         <thead>
           <tr className="border-b border-gray-700">
             <th className="text-left p-4">Pool</th>
@@ -507,7 +512,15 @@ const trendingPools = [...pools]
       );
     })}
 </tbody>
-      </table>
+</table>
+
+</div>
+
+{/* Mobile Cards */}
+
+<div className="lg:hidden">
+
+</div>
 
 <section
   id="about"
