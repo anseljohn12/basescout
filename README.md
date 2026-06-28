@@ -56,3 +56,4 @@ Help users discover quality opportunities on Base before they become obvious.
 ---
 
 Built with ❤️ for the Base ecosystem.
+
