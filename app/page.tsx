@@ -519,7 +519,105 @@ const trendingPools = [...pools]
 {/* Mobile Cards */}
 
 <div className="lg:hidden">
+<div className="lg:hidden space-y-4">
 
+  <div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-5">
+
+    {/* Header */}
+
+    <div className="flex justify-between items-start">
+
+      <div>
+        <h3 className="text-lg font-bold text-white">
+          🚀 BRETT / USDC
+        </h3>
+
+        <p className="text-sm text-gray-400 mt-1">
+          4 days old
+        </p>
+      </div>
+
+      <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">
+        🟢 Strong Buy
+      </span>
+
+    </div>
+
+    {/* Score */}
+
+    <div className="mt-6 text-center">
+
+      <div className="text-yellow-400 text-xl">
+        ⭐
+      </div>
+
+      <div className="text-5xl font-bold text-white">
+        238
+      </div>
+
+      <p className="text-sm text-gray-400 mt-1">
+        BaseScout Score
+      </p>
+
+    </div>
+
+    {/* Metrics */}
+
+    <div className="grid grid-cols-2 gap-4 mt-8">
+
+      <div>
+        <p className="text-xs text-gray-500">
+          Market Cap
+        </p>
+
+        <p className="font-semibold">
+          $2.3M
+        </p>
+      </div>
+
+      <div>
+        <p className="text-xs text-gray-500">
+          24H Volume
+        </p>
+
+        <p className="font-semibold">
+          $820K
+        </p>
+      </div>
+
+      <div>
+        <p className="text-xs text-gray-500">
+          Liquidity
+        </p>
+
+        <p className="font-semibold">
+          $610K
+        </p>
+      </div>
+
+      <div>
+        <p className="text-xs text-gray-500">
+          Age
+        </p>
+
+        <p className="font-semibold">
+          4 Days
+        </p>
+      </div>
+
+    </div>
+
+    {/* Button */}
+
+    <button className="mt-8 w-full rounded-xl bg-blue-600 hover:bg-blue-500 transition py-3 font-semibold">
+
+      View Details →
+
+    </button>
+
+  </div>
+
+</div>
 </div>
 
 <section
