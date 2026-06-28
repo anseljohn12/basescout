@@ -538,18 +538,12 @@ const trendingPools = [...pools]
 
     {/* Header */}
 
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-start">
 
       <div>
-<div className="h-[52px]">
-  <h3 className="text-lg font-bold text-white line-clamp-1">
-    🚀 {pool.attributes.name}
-  </h3>
-
-  <p className="text-xs text-gray-400 mt-1">
-    Fee Tier: {pool.attributes.name.split(" ").pop()}
-  </p>
-</div>
+<h3 className="text-lg font-bold text-white">
+  🚀 {pool.attributes.name}
+</h3>
 
       </div>
 
