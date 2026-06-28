@@ -44,6 +44,7 @@ const totalVolume = pools.reduce(
 )
 
 function formatMoney(value: number) {
+  
   if (value >= 1_000_000_000)
     return `$${(value / 1_000_000_000).toFixed(1)}B`;
 
@@ -54,6 +55,10 @@ function formatMoney(value: number) {
     return `$${Math.round(value / 1_000)}K`;
 
   return `$${Math.round(value)}`;
+}
+
+function formatPoolName(name: string) {
+  return name.replace(/\s\d+(\.\d+)?%$/, "");
 }
 
 const basePulse = [
@@ -292,7 +297,7 @@ const trendingPools = [...pools]
           </div>
 
           <div className="font-semibold text-lg">
-            {pool.attributes.name}
+            {formatPoolName(pool.attributes.name)}
           </div>
 
           <div className="text-gray-400 mt-2">
@@ -448,7 +453,7 @@ const trendingPools = [...pools]
           className="border-b border-gray-800"
         >
           <td className="p-4">
-            {attrs.name}
+            {formatPoolName(attrs.name)}
           </td>
 
           <td className="p-4">
@@ -542,7 +547,7 @@ const trendingPools = [...pools]
 
       <div>
 <h3 className="text-lg font-bold text-white">
-  🚀 {pool.attributes.name}
+  🚀 {formatPoolName(pool.attributes.name)}
 </h3>
 
       </div>
