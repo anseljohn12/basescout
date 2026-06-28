@@ -43,6 +43,19 @@ const totalVolume = pools.reduce(
   0
 )
 
+function formatMoney(value: number) {
+  if (value >= 1_000_000_000)
+    return `$${(value / 1_000_000_000).toFixed(1)}B`;
+
+  if (value >= 1_000_000)
+    return `$${(value / 1_000_000).toFixed(1)}M`;
+
+  if (value >= 1_000)
+    return `$${Math.round(value / 1_000)}K`;
+
+  return `$${Math.round(value)}`;
+}
+
 const basePulse = [
   "BRETT",
   "VIRTUAL",
@@ -534,7 +547,15 @@ const trendingPools = [...pools]
 
       </div>
 
-<span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">
+<span
+  className={`px-3 py-1 rounded-full text-xs font-semibold ${
+    score > 200
+      ? "bg-green-500/20 text-green-400"
+      : score > 100
+      ? "bg-yellow-500/20 text-yellow-400"
+      : "bg-red-500/20 text-red-400"
+  }`}
+>
   {score > 200
     ? "🟢 Strong Buy"
     : score > 100
@@ -549,7 +570,15 @@ const trendingPools = [...pools]
     <div className="mt-6 text-center">
 
 <div className="text-yellow-400 text-lg tracking-wide">
-  ★★★★★
+  {score > 250
+    ? "★★★★★"
+    : score > 200
+    ? "★★★★☆"
+    : score > 150
+    ? "★★★☆☆"
+    : score > 100
+    ? "★★☆☆☆"
+    : "★☆☆☆☆"}
 </div>
 
 <div className="border-t border-blue-500/10 my-5"></div>
@@ -574,9 +603,9 @@ const trendingPools = [...pools]
         </p>
 
 <p className="font-semibold">
-  ${Math.round(
-    Number(pool.attributes.market_cap_usd || 0)
-  ).toLocaleString()}
+{formatMoney(
+  Number(pool.attributes.market_cap_usd || 0)
+)}
 </p>
       </div>
 
@@ -586,9 +615,9 @@ const trendingPools = [...pools]
         </p>
 
 <p className="font-semibold">
-  ${Math.round(
-    Number(pool.attributes.volume_usd?.h24 || 0)
-  ).toLocaleString()}
+{formatMoney(
+  Number(pool.attributes.volume_usd?.h24 || 0)
+)}
 </p>
       </div>
 
@@ -598,9 +627,9 @@ const trendingPools = [...pools]
         </p>
 
 <p className="font-semibold">
-  ${Math.round(
-    Number(pool.attributes.reserve_in_usd || 0)
-  ).toLocaleString()}
+{formatMoney(
+  Number(pool.attributes.reserve_in_usd || 0)
+)}
 </p>
       </div>
 
