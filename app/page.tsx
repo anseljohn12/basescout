@@ -528,15 +528,19 @@ const trendingPools = [...pools]
     <div className="flex justify-between items-start">
 
       <div>
-        <h3 className="text-lg font-bold text-white">
-          🚀 BRETT / USDC
-        </h3>
+<h3 className="text-lg font-bold text-white">
+  🚀 {pool.attributes.name}
+</h3>
 
       </div>
 
-      <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">
-        🟢 Strong Buy
-      </span>
+<span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">
+  {score > 200
+    ? "🟢 Strong Buy"
+    : score > 100
+    ? "🟡 Accumulating"
+    : "🔴 Watch"}
+</span>
 
     </div>
 
@@ -549,9 +553,9 @@ const trendingPools = [...pools]
 </div>
 
 <div className="border-t border-blue-500/10 my-5"></div>
-      <div className="text-5xl font-bold text-white">
-        238
-      </div>
+<div className="text-5xl font-bold text-white">
+  {Math.round(score)}
+</div>
 <div className="border-t border-blue-500/10 my-6"></div>
 
       <p className="text-sm text-gray-400 mt-1">
@@ -569,9 +573,11 @@ const trendingPools = [...pools]
           Market Cap
         </p>
 
-        <p className="font-semibold">
-          $2.3M
-        </p>
+<p className="font-semibold">
+  ${Math.round(
+    Number(pool.attributes.market_cap_usd || 0)
+  ).toLocaleString()}
+</p>
       </div>
 
       <div>
@@ -579,9 +585,11 @@ const trendingPools = [...pools]
           24H Volume
         </p>
 
-        <p className="font-semibold">
-          $820K
-        </p>
+<p className="font-semibold">
+  ${Math.round(
+    Number(pool.attributes.volume_usd?.h24 || 0)
+  ).toLocaleString()}
+</p>
       </div>
 
       <div>
@@ -589,9 +597,11 @@ const trendingPools = [...pools]
           Liquidity
         </p>
 
-        <p className="font-semibold">
-          $610K
-        </p>
+<p className="font-semibold">
+  ${Math.round(
+    Number(pool.attributes.reserve_in_usd || 0)
+  ).toLocaleString()}
+</p>
       </div>
 
       <div>
@@ -599,20 +609,30 @@ const trendingPools = [...pools]
           Age
         </p>
 
-        <p className="font-semibold">
-          4 Days
-        </p>
+<p className="font-semibold">
+  {Math.floor(
+    (Date.now() -
+      new Date(
+        pool.attributes.pool_created_at
+      ).getTime()) /
+      (1000 * 60 * 60 * 24)
+  )}{" "}
+  Days
+</p>
       </div>
 
     </div>
 
     {/* Button */}
 
-    <button className="mt-8 w-full rounded-xl bg-blue-600 hover:bg-blue-500 transition py-3 font-semibold">
-
-      Explore Pool →
-
-    </button>
+<a
+  href={`https://www.geckoterminal.com/base/pools/${pool.attributes.address}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block mt-8 w-full rounded-xl bg-blue-600 hover:bg-blue-500 transition py-3 font-semibold text-center"
+>
+  Explore Pool →
+</a>
 
   </div>
   ))}
