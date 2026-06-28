@@ -1,6 +1,7 @@
 import { getBasePools } from "./lib/geckoterminal";
 import ThemeToggle from "./theme-toggle";
 import Image from "next/image";
+import PoolExplorer from "./PoolExplorer";
 
 export default async function Home() {
   const pools = await getBasePools();
@@ -308,6 +309,30 @@ const trendingPools = [...pools]
     )}
   </div>
 </section>
+
+<div className="flex flex-wrap gap-2 mb-6">
+
+  <button className="px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium">
+    🔥 Score
+  </button>
+
+  <button className="px-4 py-2 rounded-full bg-blue-950/20 border border-blue-500/20 text-gray-300 text-sm font-medium">
+    🆕 New
+  </button>
+
+  <button className="px-4 py-2 rounded-full bg-blue-950/20 border border-blue-500/20 text-gray-300 text-sm font-medium">
+    📈 Volume
+  </button>
+
+  <button className="px-4 py-2 rounded-full bg-blue-950/20 border border-blue-500/20 text-gray-300 text-sm font-medium">
+    💧 Liquidity
+  </button>
+
+  <button className="px-4 py-2 rounded-full bg-blue-950/20 border border-blue-500/20 text-gray-300 text-sm font-medium">
+    💰 Market Cap
+  </button>
+
+</div>
 
 <h2
   id="explore"
