@@ -518,8 +518,8 @@ const trendingPools = [...pools]
 
 {/* Mobile Cards */}
 
-<div className="lg:hidden">
 <div className="lg:hidden space-y-4">
+  {trendingPools.map(({ pool, score }: any) => (
 
   <div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-5">
 
@@ -615,8 +615,7 @@ const trendingPools = [...pools]
     </button>
 
   </div>
-
-</div>
+  ))}
 </div>
 
 <section
