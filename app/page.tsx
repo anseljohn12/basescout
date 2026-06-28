@@ -532,9 +532,6 @@ const trendingPools = [...pools]
           🚀 BRETT / USDC
         </h3>
 
-        <p className="text-sm text-gray-400 mt-1">
-          4 days old
-        </p>
       </div>
 
       <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">
@@ -547,13 +544,15 @@ const trendingPools = [...pools]
 
     <div className="mt-6 text-center">
 
-      <div className="text-yellow-400 text-xl">
-        ⭐
-      </div>
+<div className="text-yellow-400 text-lg tracking-wide">
+  ★★★★★
+</div>
 
+<div className="border-t border-blue-500/10 my-5"></div>
       <div className="text-5xl font-bold text-white">
         238
       </div>
+<div className="border-t border-blue-500/10 my-6"></div>
 
       <p className="text-sm text-gray-400 mt-1">
         BaseScout Score
@@ -611,7 +610,7 @@ const trendingPools = [...pools]
 
     <button className="mt-8 w-full rounded-xl bg-blue-600 hover:bg-blue-500 transition py-3 font-semibold">
 
-      View Details →
+      Explore Pool →
 
     </button>
 
