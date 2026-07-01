@@ -3,8 +3,6 @@ import { runScoutMission } from "./lib/ohai";
 import ThemeToggle from "./theme-toggle";
 import Image from "next/image";
 import PoolExplorer from "./components/PoolExplorer";
-import OHAIMissionCard from "./components/OHAIMissionCard";
-import OHAIMissionControl from "./components/OHAIMissionControl";
 
 export default async function Home() {
   const pools = await getBasePools();
@@ -532,7 +530,11 @@ const report = runScoutMission(pool);
 {/* Mobile Cards */}
 
 <div className="lg:hidden space-y-4">
-  {trendingPools.map(({ pool, score }: any) => (
+  {trendingPools.map(({ pool }: any) => {
+
+  const report = runScoutMission(pool);
+
+  return (
 
   <div className="bg-blue-950/20 backdrop-blur-md border border-blue-500/20 rounded-2xl p-5">
 
@@ -549,18 +551,18 @@ const report = runScoutMission(pool);
 
 <span
   className={`px-3 py-1 rounded-full text-xs font-semibold ${
-    score > 200
-      ? "bg-green-500/20 text-green-400"
-      : score > 100
-      ? "bg-yellow-500/20 text-yellow-400"
-      : "bg-red-500/20 text-red-400"
+    report.verdict === "Hot"
+  ? "bg-green-500/20 text-green-400"
+  : report.verdict === "Gem"
+  ? "bg-yellow-500/20 text-yellow-400"
+  : "bg-red-500/20 text-red-400"
   }`}
 >
-  {score > 200
-    ? "🟢 Strong Buy"
-    : score > 100
-    ? "🟡 Accumulating"
-    : "🔴 Watch"}
+  {report.verdict === "Hot"
+  ? "🟢 Strong Buy"
+  : report.verdict === "Gem"
+  ? "🟡 Accumulating"
+  : "🔴 Watch"}
 </span>
 
     </div>
@@ -570,20 +572,20 @@ const report = runScoutMission(pool);
     <div className="mt-6 text-center">
 
 <div className="text-yellow-400 text-lg tracking-wide">
-  {score > 250
-    ? "★★★★★"
-    : score > 200
-    ? "★★★★☆"
-    : score > 150
-    ? "★★★☆☆"
-    : score > 100
-    ? "★★☆☆☆"
-    : "★☆☆☆☆"}
+  {report.score > 250
+  ? "★★★★★"
+  : report.score > 200
+  ? "★★★★☆"
+  : report.score > 150
+  ? "★★★☆☆"
+  : report.score > 100
+  ? "★★☆☆☆"
+  : "★☆☆☆☆"}
 </div>
 
 <div className="border-t border-blue-500/10 my-5"></div>
 <div className="text-5xl font-bold text-white">
-  {Math.round(score)}
+  {Math.round(report.score)}
 </div>
 <div className="border-t border-blue-500/10 my-6"></div>
 
