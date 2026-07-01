@@ -440,31 +440,7 @@ return {
           (1000 * 60 * 60 * 24)
         );
 
-      let score = 0;
-
-      // Buy pressure
-      score += buys - sells;
-
-      // Volume
-      score += volume / 500000;
-
-      // Young pool bonus
-      if (ageDays < 7) {
-        score += 100;
-      } else if (ageDays < 30) {
-        score += 50;
-      } else if (ageDays < 90) {
-        score += 20;
-      }
-
-      // Small market cap bonus
-      if (marketCap < 1000000) {
-        score += 100;
-      } else if (marketCap < 5000000) {
-        score += 50;
-      } else if (marketCap < 20000000) {
-        score += 20;
-      }
+const report = runScoutMission(pool);
 
       return (
         <tr
@@ -517,11 +493,11 @@ return {
           </td>
 
           <td className="p-4 font-bold">
-            {score > 200
-              ? "🚀 Hot"
-              : score > 100
-              ? "💎 Gem"
-              : "⚠️ Watch"}
+            {report.verdict === "Hot"
+  ? "🚀 Hot"
+  : report.verdict === "Gem"
+  ? "💎 Gem"
+  : "⚠️ Watch"}
           </td>
 
 
