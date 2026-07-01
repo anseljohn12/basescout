@@ -1,7 +1,7 @@
 import { getBasePools } from "./lib/geckoterminal";
 import ThemeToggle from "./theme-toggle";
 import Image from "next/image";
-import PoolExplorer from "./PoolExplorer";
+import PoolExplorer from "./components/PoolExplorer";
 
 export default async function Home() {
   const pools = await getBasePools();
@@ -333,6 +333,8 @@ const trendingPools = [...pools]
   </button>
 
 </div>
+
+<PoolExplorer pools={pools} />
 
 <h2
   id="explore"
