@@ -1,7 +1,10 @@
 import { getBasePools } from "./lib/geckoterminal";
+import { runScoutMission } from "./lib/ohai";
 import ThemeToggle from "./theme-toggle";
 import Image from "next/image";
 import PoolExplorer from "./components/PoolExplorer";
+import OHAIMissionCard from "./components/OHAIMissionCard";
+import OHAIMissionControl from "./components/OHAIMissionControl";
 
 export default async function Home() {
   const pools = await getBasePools();
@@ -116,23 +119,12 @@ const trendingPools = [...pools]
         (1000 * 60 * 60 * 24)
       );
 
-    let score = 0;
+const report = runScoutMission(pool);
 
-    score += buys - sells;
-    score += volume / 500000;
-
-    if (ageDays < 7) score += 100;
-    else if (ageDays < 30) score += 50;
-    else if (ageDays < 90) score += 20;
-
-    if (marketCap < 1000000) score += 100;
-    else if (marketCap < 5000000) score += 50;
-    else if (marketCap < 20000000) score += 20;
-
-    return {
-      pool,
-      score,
-    };
+return {
+  pool,
+  score: report.score,
+};
   })
 
 .sort((a, b) => b.score - a.score)
